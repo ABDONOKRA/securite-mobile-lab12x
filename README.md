@@ -49,7 +49,25 @@ Notre cible est le numéro [7] owasp.mstg.uncrackable3.
 
 <img width="746" height="169" alt="image" src="https://github.com/user-attachments/assets/7b2aecc4-8ccf-46e9-b598-769d03bd00c0" />
 
+# 🎉 Parfait ! Medusa a trouvé 4 modules de root bypass !
 
+---
+
+### 📋 Modules disponibles :
+
+| # | Module | Description |
+|---|---|---|
+| 1 | `root_detection/universal_root_detection_bypass` | ✅ **Le plus complet** |
+| 2 | `root_detection/rootbeer_detection_bypass` | Pour RootBeer spécifiquement |
+| 3 | `root_detection/rootbeer_detection_bypass_no_obfuscation` | RootBeer sans obfuscation |
+| 4 | `root_detection/jailMonkey_react_native` | Pour apps React Native |
+
+---
+
+On va utiliser le module **universel** qui est le plus adapté à notre cible. Tapez :
+
+```bash
+use root_detection/universal_root_detection_bypass
 
 
 
