@@ -76,14 +76,18 @@ use root_detection/universal_root_detection_bypass
 Le module universal_root_detection_bypass est maintenant dans la liste Current Mods.
 
 🚀 Maintenant lançons le bypass !
-```bash run ```
+```bash run ```  
+# Une erreure 
+<img width="1920" height="697" alt="image" src="https://github.com/user-attachments/assets/86908cd8-4ac9-4bbd-b8fb-9dd52200b18c" />
+
+Frida cherche un gadget arm64 mais notre émulateur est x86_64 ! C'est un conflit d'architecture.
+# Solution — Forcer le bon device USB
+relancez Medusa en spécifiant explicitement le device USB 
 
 
-
-
-
-
-
+```bash
+python3.12 medusa.py -p owasp.mstg.uncrackable3 -d emulator-5554
+```bash
 
 
 
