@@ -452,7 +452,8 @@ Spawned `owasp.mstg.uncrackable3`. Resuming main thread!
  
 **Émulateur — Application lancée sans détection de root :**
  
-<img width="506" alt="App lancée après bypass" src="https://github.com/user-attachments/assets/8b942b58-a637-47e6-a9de-76083b0e8028" />
+<img width="506" alt="App lancée après bypass" src="https://github.com/user-attachments/assets/8b942b58-a637-47e6-a9de-76083b0e8028" />  
+
 ✅ **Bypass réussi** — Les hooks sont injectés, l'application se lance sans déclencher la détection de root.
  
 ---
