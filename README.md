@@ -64,16 +64,19 @@ Notre cible est le numéro [7] owasp.mstg.uncrackable3.
 
 ---
 
-On va utiliser le module **universel** qui est le plus adapté à notre cible. Tapez :
+On va utiliser le module **universel** qui est le plus adapté à notre cible.  :
 
 ```bash
 use root_detection/universal_root_detection_bypass
+```
 
 
 
+ # Module chargé avec succès !
+Le module universal_root_detection_bypass est maintenant dans la liste Current Mods.
 
-
-
+🚀 Maintenant lançons le bypass !
+```bash run ```
 
 
 
