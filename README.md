@@ -1,7 +1,7 @@
 
 # 🔐 LAB 12 — Bypass de la Détection de Root Android
  
-**Auteur :** ennoukra  
+**Auteur :** ENNOUKRA  Abdelghafour
 **Date :** 29 Avril 2026  
 **Plateforme :** Fedora Linux · Android Emulator x86_64 (API 30)  
 **Objectif :** Contourner la détection de root d'une application Android via Medusa/Frida dans un cadre d'audit de sécurité mobile.
