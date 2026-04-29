@@ -178,15 +178,17 @@ Java.perform(function () {
  
 Avant de commencer, on vérifie que l'environnement Python est prêt et que Frida est installé avec des versions cohérentes entre le CLI et le module Python.
  
-```bash
+```
 python --version
 pip --version
 frida --version
 python -c "import frida; print(frida.__version__)"
 ```
  
-<img width="1168" alt="Preuve installation Frida" src="https://github.com/user-attachments/assets/22016891-0cab-44de-8611-8352b2c67290" />
-> ✅ **Frida 17.8.0** installé et cohérent entre CLI et module Python.
+<img width="1168" alt="Preuve installation Frida" src="https://github.com/user-attachments/assets/22016891-0cab-44de-8611-8352b2c67290" />  
+
+
+✅ **Frida 17.8.0** installé et cohérent entre CLI et module Python.
  
 ---
  
@@ -194,13 +196,14 @@ python -c "import frida; print(frida.__version__)"
  
 ### 2.1 Détection ADB de l'émulateur
  
-```bash
+```
 adb version
 adb devices
 ```
  
-<img width="613" alt="adb devices" src="https://github.com/user-attachments/assets/d895151c-03ed-4605-b6d8-11c4a803b65b" />
-> ✅ L'émulateur `emulator-5554` est bien détecté avec le statut `device`.
+<img width="613" alt="adb devices" src="https://github.com/user-attachments/assets/d895151c-03ed-4605-b6d8-11c4a803b65b" />  
+
+✅ L'émulateur `emulator-5554` est bien détecté avec le statut `device`.
  
 ---
  
@@ -208,7 +211,7 @@ adb devices
  
 On identifie d'abord l'architecture CPU de l'émulateur, puis on pousse le bon binaire `frida-server`.
  
-```bash
+```
 adb shell getprop ro.product.cpu.abi
 # → x86_64
  
@@ -220,19 +223,22 @@ adb forward tcp:27042 tcp:27042
 adb forward tcp:27043 tcp:27043
 ```
  
-<img width="722" alt="frida-server démarrage" src="https://github.com/user-attachments/assets/e46e5b94-0ded-47a7-be4e-aae797c00a1c" />
+<img width="722" alt="frida-server démarrage" src="https://github.com/user-attachments/assets/e46e5b94-0ded-47a7-be4e-aae797c00a1c" />  
+
 ---
  
 ### 2.3 Vérification de frida-server et liste des applications
  
-```bash
+```
+
 adb shell "ps -A | grep frida"
 frida-ps -Uai
 ```
  
 <img width="1073" alt="ps grep frida" src="https://github.com/user-attachments/assets/923dfb39-e82a-4b50-b7d9-57b12acad931" />
 <img width="893" alt="frida-ps -Uai" src="https://github.com/user-attachments/assets/6fb508d3-6b13-4bc3-9571-293e3bd22a11" />
-> ✅ **frida-server** tourne en tant que `root`. **19 applications** listées, dont notre cible `owasp.mstg.uncrackable3`.
+
+✅ **frida-server** tourne en tant que `root`. **19 applications** listées, dont notre cible `owasp.mstg.uncrackable3`.
  
 ---
  
@@ -240,7 +246,7 @@ frida-ps -Uai
  
 Medusa est un framework d'instrumentation Android basé sur Frida, avec des modules prêts à l'emploi pour le bypass de protections.
  
-```bash
+```
 git clone https://github.com/Ch0pin/medusa.git
 cd medusa
 pip install -r requirements.txt
@@ -248,24 +254,27 @@ pip install cmd2
 python3.12 medusa.py --help
 ```
  
-> **Note :** Il faut utiliser `python3.12` car les dépendances Frida sont installées pour Python 3.12.
+**Note :** Il faut utiliser `python3.12` car les dépendances Frida sont installées pour Python 3.12.
  
-<img width="893" alt="Medusa installation" src="https://github.com/user-attachments/assets/167960e1-e06a-4a4f-932d-8197c7199c09" />
-<img width="1857" alt="Medusa help output" src="https://github.com/user-attachments/assets/b7f0ee35-909d-45ac-b81b-50d9b8f61775" />
-> ✅ **Medusa opérationnel** — 124 modules disponibles.
+<img width="893" alt="Medusa installation" src="https://github.com/user-attachments/assets/167960e1-e06a-4a4f-932d-8197c7199c09" />  
+
+<img width="1857" alt="Medusa help output" src="https://github.com/user-attachments/assets/b7f0ee35-909d-45ac-b81b-50d9b8f61775" />  
+
+✅ **Medusa opérationnel** — 124 modules disponibles.
  
 ---
  
 ## 4. Application cible — Uncrackable Level 3
  
-**Package :** `owasp.mstg.uncrackable3`  
+**Package :** `owasp.mstg.uncrackable3`    
+
 **Source :** OWASP Mobile Security Testing Guide
  
 ### Comportement sans bypass
  
 Au lancement sur l'émulateur rooté, l'application détecte immédiatement l'environnement et affiche :
  
-> *"Rooting or tampering detected. This is unacceptable. The app is now going to exit."*
+*"Rooting or tampering detected. This is unacceptable. The app is now going to exit."*
  
 <img width="441" alt="Root detected - avant bypass" src="https://github.com/user-attachments/assets/6a897ca8-4bde-47b6-973d-fc3c49e64ed5" />
 **Cause :** L'app lit la propriété système `ro.build.tags = test-keys`, caractéristique des builds de débogage et émulateurs rootés.
@@ -275,19 +284,22 @@ Au lancement sur l'émulateur rooté, l'application détecte immédiatement l'en
 ## 5. Bypass avec Medusa
  
 ### 5.1 Lancement de Medusa et connexion à l'émulateur
- 
-```bash
+
+   
+```
 python3.12 medusa.py -p owasp.mstg.uncrackable3 -d emulator-5554
 # → Sélectionner : 3) Device(id="emulator-5554")
 ```
  
-<img width="1374" alt="Medusa connexion émulateur" src="https://github.com/user-attachments/assets/346ed101-e81d-43ac-85f2-ffac1c2b4cb9" />
-<img width="789" alt="Medusa propriétés device" src="https://github.com/user-attachments/assets/6db39791-986b-4e00-86c7-18703e1e6678" />
+<img width="1374" alt="Medusa connexion émulateur" src="https://github.com/user-attachments/assets/346ed101-e81d-43ac-85f2-ffac1c2b4cb9" />  
+
+<img width="789" alt="Medusa propriétés device" src="https://github.com/user-attachments/assets/6db39791-986b-4e00-86c7-18703e1e6678" />  
+
 **Propriété clé détectée :**
 ```
 [ro.build.tags]: [test-keys]
 ```
-> C'est exactement ce que l'application vérifie pour détecter le root.
+>C'est exactement ce que l'application vérifie pour détecter le root.
  
 ---
  
@@ -297,7 +309,8 @@ python3.12 medusa.py -p owasp.mstg.uncrackable3 -d emulator-5554
 medusa> search root
 ```
  
-<img width="746" alt="search root modules" src="https://github.com/user-attachments/assets/7b2aecc4-8ccf-46e9-b598-769d03bd00c0" />
+<img width="746" alt="search root modules" src="https://github.com/user-attachments/assets/7b2aecc4-8ccf-46e9-b598-769d03bd00c0" />  
+
 **4 modules disponibles :**
  
 | # | Module | Usage |
@@ -318,7 +331,8 @@ medusa> run -f owasp.mstg.uncrackable3 --fallback
  
 ### Erreur rencontrée
  
-<img width="1920" alt="Erreur gadget arm64" src="https://github.com/user-attachments/assets/86908cd8-4ac9-4bbd-b8fb-9dd52200b18c" />
+<img width="1920" alt="Erreur gadget arm64" src="https://github.com/user-attachments/assets/86908cd8-4ac9-4bbd-b8fb-9dd52200b18c" />  
+
 ```
 Failed to spawn: need Gadget to attach on jailed Android;
 its default location is: /home/ennoukra/.cache/frida/gadget-android-arm64.so
@@ -330,11 +344,12 @@ its default location is: /home/ennoukra/.cache/frida/gadget-android-arm64.so
  
 Relancement de Medusa en forçant le device USB :
  
-```bash
+```
 python3.12 medusa.py -p owasp.mstg.uncrackable3 -d emulator-5554
 ```
  
-<img width="1920" alt="Relancement Medusa" src="https://github.com/user-attachments/assets/0e0ab57b-cd99-4264-9b45-90b706be7d3a" />
+<img width="1920" alt="Relancement Medusa" src="https://github.com/user-attachments/assets/0e0ab57b-cd99-4264-9b45-90b706be7d3a" />  
+
 <img width="1912" alt="Erreur persistante" src="https://github.com/user-attachments/assets/c2c2fd25-3b5d-4753-a808-589df45837e2" />
 > ❌ **Le problème persiste.** Medusa ne résout pas automatiquement le conflit d'architecture pour les émulateurs x86_64. → **Passage au Plan B.**
  
@@ -347,7 +362,7 @@ Comme prévu dans le lab, on utilise directement des scripts Frida pour reprodui
 ### 7.1 Script `bypass_root.js`
  
 <img width="1912" alt="Script bypass_root.js" src="https://github.com/user-attachments/assets/8f5c6772-a794-4b31-9e91-648622d0a10c" />
-```javascript
+```
 // bypass_root.js — Neutralise Build.TAGS, File.exists, Runtime.exec
  
 const suspiciousPaths = [
@@ -409,7 +424,7 @@ Java.perform(function () {
  
 ### 7.2 Lancement du bypass
  
-```bash
+```
 # Redémarrer frida-server proprement
 adb shell "pkill -9 -f frida-server"
 adb shell "/data/local/tmp/frida-server &"
@@ -437,7 +452,7 @@ Spawned `owasp.mstg.uncrackable3`. Resuming main thread!
 **Émulateur — Application lancée sans détection de root :**
  
 <img width="506" alt="App lancée après bypass" src="https://github.com/user-attachments/assets/8b942b58-a637-47e6-a9de-76083b0e8028" />
-> ✅ **Bypass réussi** — Les hooks sont injectés, l'application se lance sans déclencher la détection de root.
+✅ **Bypass réussi** — Les hooks sont injectés, l'application se lance sans déclencher la détection de root.
  
 ---
  
@@ -489,7 +504,8 @@ Spawned `owasp.mstg.uncrackable3`. Resuming main thread!
 | `Build.TAGS` | `test-keys` | `release-keys` |
 | `File.exists("/system/xbin/su")` | `true` | `false` |
 | `Runtime.exec("su")` | Exécute `su` | Remplacé par `echo` |
- 
+
+   
 **Medusa vs Frida pur** — Medusa est un excellent framework pour automatiser l'instrumentation, mais peut présenter des limitations de compatibilité selon l'architecture de l'émulateur (ici x86_64 vs arm64). Dans ce cas, le Plan B avec des scripts Frida directement offre plus de contrôle et de flexibilité.
  
 ### Outils utilisés
@@ -504,7 +520,7 @@ Spawned `owasp.mstg.uncrackable3`. Resuming main thread!
  
 ---
  
-> **Avertissement éthique :** Les techniques présentées dans ce lab sont utilisées exclusivement dans un cadre légal d'audit de sécurité mobile, sur des applications et appareils de test. Toute utilisation sur des applications tierces sans autorisation explicite est illégale.
+**Avertissement éthique :** Les techniques présentées dans ce lab sont utilisées exclusivement dans un cadre légal d'audit de sécurité mobile, sur des applications et appareils de test. Toute utilisation sur des applications tierces sans autorisation explicite est illégale.
  
 ---
  
