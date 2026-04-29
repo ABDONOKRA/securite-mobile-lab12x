@@ -27,4 +27,42 @@
 L'application Uncrackable Level 3 détecte le root et affiche :  
 
 
-[]"Rooting or tampering detected. This is unacceptable. The app is now going to exit."
+[]"Rooting or tampering detected. This is unacceptable. The app is now going to exit."  
+# Étape 4 — Lancer le bypass avec Medusa  
+
+<img width="1374" height="606" alt="image" src="https://github.com/user-attachments/assets/346ed101-e81d-43ac-85f2-ffac1c2b4cb9" />
+
+<img width="789" height="776" alt="image" src="https://github.com/user-attachments/assets/6db39791-986b-4e00-86c7-18703e1e6678" />
+
+## Medusa est connecté à l'émulateur !
+
+  
+Je remarque quelque chose d'important :  
+
+[ro.build.tags]: [test-keys]  
+
+C'est exactement ce que l'app détecte pour savoir si l'appareil est rooté ! ✅  
+
+Notre cible est le numéro [7] owasp.mstg.uncrackable3.
+
+##  Maintenant cherchons le module root bypass
+
+<img width="746" height="169" alt="image" src="https://github.com/user-attachments/assets/7b2aecc4-8ccf-46e9-b598-769d03bd00c0" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
