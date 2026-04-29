@@ -85,7 +85,7 @@ Frida cherche un gadget arm64 mais notre émulateur est x86_64 ! C'est un confli
 relancez Medusa en spécifiant explicitement le device USB 
 
 
-```bash
+```
 python3.12 medusa.py -p owasp.mstg.uncrackable3 -d emulator-5554
 ```bash
 
