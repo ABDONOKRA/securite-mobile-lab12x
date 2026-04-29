@@ -129,15 +129,18 @@ Java.perform(function () {
 ```
 
 
-<img width="1149" height="365" alt="image" src="https://github.com/user-attachments/assets/454a55fc-76a3-48ac-9189-9081b95242f2" />
+<img width="1173" height="505" alt="image" src="https://github.com/user-attachments/assets/b37a80c3-1286-4d43-9305-7a6213509f6a" />
 
 
 
-<img width="524" height="953" alt="image" src="https://github.com/user-attachments/assets/d26e2c70-0fe7-4ba4-91bf-bc76b9c11861" />
+<img width="506" height="892" alt="image" src="https://github.com/user-attachments/assets/8b942b58-a637-47e6-a9de-76083b0e8028" />
 
-
-
-
+  
+```
+[+] Build.TAGS -> release-keys
+[+] Runtime.exec hooks installed  
+[+] Java bypass installed
+```
 
 
 
