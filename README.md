@@ -23,3 +23,8 @@
 # Lapk cible est uncrackable 3
 <img width="441" height="836" alt="image" src="https://github.com/user-attachments/assets/6a897ca8-4bde-47b6-973d-fc3c49e64ed5" />
 
+# ✅ Étape 3 — VALIDÉE
+L'application Uncrackable Level 3 détecte le root et affiche :  
+
+
+[]"Rooting or tampering detected. This is unacceptable. The app is now going to exit."
