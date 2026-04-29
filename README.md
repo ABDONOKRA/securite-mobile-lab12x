@@ -87,7 +87,41 @@ relancez Medusa en spécifiant explicitement le device USB
 
 ```
 python3.12 medusa.py -p owasp.mstg.uncrackable3 -d emulator-5554
-```bash
+```
+## Relencement de Medusa  
+
+<img width="1920" height="605" alt="image" src="https://github.com/user-attachments/assets/0e0ab57b-cd99-4264-9b45-90b706be7d3a" />
+
+# Le problème persiste avec le gadget arm64. C'est un bug de Medusa qui cherche le mauvais gadget pour x86_64.    
+
+<img width="1912" height="916" alt="image" src="https://github.com/user-attachments/assets/c2c2fd25-3b5d-4753-a808-589df45837e2" />
+
+  
+# 🔧 On passe au Plan B — Frida pur !
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
