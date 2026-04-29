@@ -49,11 +49,11 @@ Notre cible est le numéro [7] owasp.mstg.uncrackable3.
 
 <img width="746" height="169" alt="image" src="https://github.com/user-attachments/assets/7b2aecc4-8ccf-46e9-b598-769d03bd00c0" />
 
-# 🎉 Parfait ! Medusa a trouvé 4 modules de root bypass !
+# Medusa a trouvé 4 modules de root bypass !
 
 ---
 
-### 📋 Modules disponibles :
+###  Modules disponibles :
 
 | # | Module | Description |
 |---|---|---|
