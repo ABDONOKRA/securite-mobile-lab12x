@@ -361,7 +361,9 @@ Comme prévu dans le lab, on utilise directement des scripts Frida pour reprodui
  
 ### 7.1 Script `bypass_root.js`
  
-<img width="1912" alt="Script bypass_root.js" src="https://github.com/user-attachments/assets/8f5c6772-a794-4b31-9e91-648622d0a10c" />
+<img width="1912" alt="Script bypass_root.js" src="https://github.com/user-attachments/assets/8f5c6772-a794-4b31-9e91-648622d0a10c" />  
+
+  
 ```
 // bypass_root.js — Neutralise Build.TAGS, File.exists, Runtime.exec
  
@@ -420,7 +422,6 @@ Java.perform(function () {
 });
 ```
  
----
  
 ### 7.2 Lancement du bypass
  
